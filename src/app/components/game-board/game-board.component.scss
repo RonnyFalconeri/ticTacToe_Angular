@@ -15,6 +15,18 @@
   margin: 0 auto;
 }
 
+.game-result {
+  position: absolute;
+  top: 41%;
+  background-color: #808080e6;
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+  font-family: sans-serif;
+  text-align: center;
+  box-shadow: 0px 5px 19px black;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: 200px 200px 200px;
@@ -37,6 +49,7 @@ button {
 
 button:hover {
   cursor: pointer;
+  background-color: #0e62ff;
 }
 
 button:active {
@@ -44,7 +57,23 @@ button:active {
 }
 
 @media (max-width: 600px) {
+  .wrapper {
+    flex-direction: column-reverse;
+    margin: 20px auto;
+  }
+
+  button {
+    font-size: 1.8rem;
+    height: 3.8rem;
+    width: 250px;
+  }
+
   .game-board {
     grid-template-columns: 100px 100px 100px;
+  }
+
+  .game-result {
+    top: 41%;
+    font-size: 1rem;
   }
 }
