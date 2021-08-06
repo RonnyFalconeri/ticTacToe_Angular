@@ -1,0 +1,20 @@
+.tile {
+  height: 10rem;
+  border: 2px solid black;
+  background-color: aquamarine;
+
+  .symbol {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+    font-family: cursive;
+  }
+}
+
+.tile:hover {
+  background-color: rgba(127, 255, 212, 0.555);
+  cursor: pointer;
+}

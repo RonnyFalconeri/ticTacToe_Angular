@@ -1,0 +1,15 @@
+<div class="player-info" *ngIf="currentPlayer == tileStateEnum.PLAYER_1">Player 1 is at turn!</div>
+<div class="player-info" *ngIf="currentPlayer == tileStateEnum.PLAYER_2">Player 2 is at turn!</div>
+
+<h1 *ngIf="gameState == gameStateEnum.WON">Player {{currentPlayer}} won the game!</h1>
+<h1 *ngIf="gameState == gameStateEnum.DRAW">Game resulted in a draw.</h1>
+
+<button (click)="newGame()">Restart Game</button>
+
+<div class="game-board">
+  <app-tile
+    *ngFor="let tile of gameField; let i=index;"
+    [state]="tile.getState()"
+    (click)="makeMove(i)">
+  </app-tile>
+</div>
