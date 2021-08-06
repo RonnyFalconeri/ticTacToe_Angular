@@ -1,16 +1,26 @@
 .tile {
-  height: 10rem;
+  height: 200px;
   border: 2px solid black;
   background-color: aquamarine;
+}
+
+.symbol {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 12rem;
+  font-family: cursive;
+}
+
+@media (max-width: 600px) {
+  .tile {
+    height: 100px;
+  }
 
   .symbol {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    font-size: 10rem;
-    font-family: cursive;
+    font-size: 6rem;
   }
 }
 
