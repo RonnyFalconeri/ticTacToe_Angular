@@ -1,3 +1,3 @@
-<div class="tile" *ngIf="state == tileStateEnum.UNSET"><span class="symbol">&nbsp;</span></div>
-<div class="tile" *ngIf="state == tileStateEnum.PLAYER_1"><span class="symbol">X</span></div>
-<div class="tile" *ngIf="state == tileStateEnum.PLAYER_2"><span class="symbol">O</span></div>
+<div class="tile" [ngClass]="cornerClass" *ngIf="state === tileStateEnum.UNSET"><span class="symbol">&nbsp;</span></div>
+<div class="tile" [ngClass]="cornerClass" *ngIf="state === tileStateEnum.PLAYER_1"><span class="symbol">X</span></div>
+<div class="tile" [ngClass]="cornerClass" *ngIf="state === tileStateEnum.PLAYER_2"><span class="symbol">O</span></div>

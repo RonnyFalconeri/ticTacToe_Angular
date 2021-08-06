@@ -14,6 +14,22 @@
   font-family: cursive;
 }
 
+.corner-radius-0 {
+  border-top-left-radius: 40px;
+}
+
+.corner-radius-2 {
+  border-top-right-radius: 40px;
+}
+
+.corner-radius-6 {
+  border-bottom-left-radius: 40px;
+}
+
+.corner-radius-8 {
+  border-bottom-right-radius: 40px;
+}
+
 @media (max-width: 600px) {
   .tile {
     height: 100px;
