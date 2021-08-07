@@ -12,13 +12,13 @@ The game results in a draw if every field is marked without having reached the g
 
 In-game screenshot 1:
 
-![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/tree/master/src/assets/images/ingame-screenshot1.png "In-game screenshot 1")
+![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/blob/master/src/assets/images/ingame-screenshot1.png "In-game screenshot 1")
 
 
 
 In-game screenshot 2:
 
-![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/tree/master/src/assets/images/ingame-screenshot2.png "In-game screenshot 2")
+![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/blob/master/src/assets/images/ingame-screenshot2.png "In-game screenshot 2")
 
 
 ### Used technology
@@ -33,17 +33,17 @@ The application was styled using [SCSS/SASS](https://sass-lang.com/). Additional
 
 PC:
 
-![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/tree/master/src/assets/images/responsive-pc.png "responsive pc view")
+![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/blob/master/src/assets/images/responsive-pc.png "responsive pc view")
 
 
 iPad:
 
-![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/tree/master/src/assets/images/responsive-ipad.png "responsive ipad view")
+![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/blob/master/src/assets/images/responsive-ipad.png "responsive ipad view")
 
 
 iPhone:
 
-![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/tree/master/src/assets/images/responsive-iphone.png "responsive iphone view")
+![alt text](https://github.com/RonnyFalconeri/ticTacToe_Angular/blob/master/src/assets/images/responsive-iphone.png "responsive iphone view")
 
 
 ## Getting started
