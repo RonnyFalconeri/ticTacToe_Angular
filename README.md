@@ -65,6 +65,15 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng test` to execute the unit tests. Navigate to `http://localhost:9876/` to see the test results.
 
 
+## Releases
+
+### v1.0
+- Base application ready and playable
+- Unit tests for scoring system
+- Responsive Design
+
+
+
 ## Further development
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
