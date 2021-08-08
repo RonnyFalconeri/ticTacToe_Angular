@@ -1,74 +1,75 @@
-import { Referee } from "./Referee";
+import { ScoringSystem } from "./ScoringSystem";
 import { Tile } from 'src/app/logic/models/Tile';
 import { TileState } from 'src/app/logic/models/TileState';
+import { IScoringSystem } from "./models/IScoringSystem";
 
 var winner: TileState = TileState.PLAYER_1;
 var looser: TileState = TileState.PLAYER_2;
 var unset: TileState = TileState.UNSET;
 
-describe('Referee', () => {
+describe('ScoringSystem', () => {
 
   it('should detect win by row 1', () => {
     var gameField: Tile[] = getWonGameFieldByRow1();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
   it('should detect win by row 2', () => {
     var gameField: Tile[] = getWonGameFieldByRow2();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
   it('should detect win by row 3', () => {
     var gameField: Tile[] = getWonGameFieldByRow3();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
   it('should detect win by col 1', () => {
     var gameField: Tile[] = getWonGameFieldByCol1();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
   it('should detect win by col 2', () => {
     var gameField: Tile[] = getWonGameFieldByCol2();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
   it('should detect win by col 3', () => {
     var gameField: Tile[] = getWonGameFieldByCol3();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
   it('should detect win by diag 1', () => {
     var gameField: Tile[] = getWonGameFieldByDiag1();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
   it('should detect win by diag 2', () => {
     var gameField: Tile[] = getWonGameFieldByDiag2();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
   it('should detect draw', () => {
     var gameField: Tile[] = getDrawGameField();
-    var referee: Referee = new Referee(gameField);
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
 
-    expect(referee.isDraw()).toBeTruthy();
+    expect(scoringSystem.isDraw()).toBeTruthy();
   });
 
 });

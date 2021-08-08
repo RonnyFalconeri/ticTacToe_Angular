@@ -1,16 +1,15 @@
-import { IReferee } from './models/IReferee';
+import { IScoringSystem } from './models/IScoringSystem';
 import { TileState } from 'src/app/logic/models/TileState';
 import { Tile } from 'src/app/logic/models/Tile';
 
-export class Referee implements IReferee {
-  gameField: Tile[];
+export class ScoringSystem implements IScoringSystem {
+  private gameField: Tile[];
 
   constructor(gameField: Tile[]) {
     this.gameField = gameField;
   }
 
-  playerHasWon(currentPlayer : TileState): boolean {
-
+  playerHasWon(currentPlayer : TileState) : boolean {
     if(this.wonByRow(currentPlayer)) return true;
     if(this.wonByColumn(currentPlayer)) return true;
     if(this.wonByDiagonale(currentPlayer)) return true;
@@ -18,7 +17,7 @@ export class Referee implements IReferee {
     return false;
   }
 
-  wonByRow(currentPlayer : TileState) : boolean {
+  private wonByRow(currentPlayer : TileState) : boolean {
     for(let i=0; i<7; i=i+3) {
       if(this.gameField[i].getState() == currentPlayer &&
         this.gameField[i+1].getState() == currentPlayer &&
@@ -29,7 +28,7 @@ export class Referee implements IReferee {
     return false;
   }
 
-  wonByColumn(currentPlayer : TileState) : boolean {
+  private wonByColumn(currentPlayer : TileState) : boolean {
     for(let i=0; i<3; i++) {
       if(this.gameField[i].getState() == currentPlayer &&
       this.gameField[i+3].getState() == currentPlayer &&
@@ -40,7 +39,7 @@ export class Referee implements IReferee {
     return false;
   }
 
-  wonByDiagonale(currentPlayer : TileState) : boolean {
+  private wonByDiagonale(currentPlayer : TileState) : boolean {
     if(
       (this.gameField[0].getState() == currentPlayer &&
       this.gameField[4].getState() == currentPlayer &&
@@ -54,16 +53,12 @@ export class Referee implements IReferee {
     return false;
   }
 
-  isDraw(): boolean {
+  isDraw() : boolean {
     for(let i=0; i<9; i++) {
       if(this.gameField[i].getState() == TileState.UNSET) {
         return false;
       }
     }
     return true;
-  }
-
-  setGameField(gameField: Tile[]) {
-    this.gameField = gameField;
   }
 }

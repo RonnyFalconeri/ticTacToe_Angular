@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TileState } from 'src/app/logic/models/TileState';
 import { GameState } from 'src/app/logic/models/GameState';
 import { Tile } from 'src/app/logic/models/Tile';
-import { Referee } from 'src/app/logic/Referee';
+import { ScoringSystem } from 'src/app/logic/ScoringSystem';
+import { IScoringSystem } from 'src/app/logic/models/IScoringSystem';
 
 @Component({
   selector: 'app-game-board',
@@ -16,7 +17,7 @@ export class GameBoardComponent implements OnInit {
   public gameState: GameState;
   public currentPlayer: TileState;
   public gameField: Tile[] = new Array(9);
-  private referee: Referee;
+  private scoringSystem: IScoringSystem;
 
   constructor() {}
 
@@ -28,7 +29,7 @@ export class GameBoardComponent implements OnInit {
     this.currentPlayer = TileState.PLAYER_1;
     this.gameState = GameState.RUNNING;
     this.resetGameField();
-    this.referee = new Referee(this.gameField);
+    this.scoringSystem = new ScoringSystem(this.gameField);
   }
 
   private resetGameField() : void {
@@ -57,7 +58,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   private checkForWin() : void {
-    if(this.referee.playerHasWon(this.currentPlayer)) {
+    if(this.scoringSystem.playerHasWon(this.currentPlayer)) {
       this.gameState = GameState.WON;
     } else {
       this.checkForDraw();
@@ -66,7 +67,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   private checkForDraw() : void {
-    if(this.referee.isDraw()) {
+    if(this.scoringSystem.isDraw()) {
       this.gameState = GameState.DRAW;
     }
   }

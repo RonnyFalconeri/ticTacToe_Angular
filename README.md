@@ -48,11 +48,15 @@ iPhone:
 
 ## Getting started
 
-### Clone the project
+### Development Environment Setup
 
 To clone this repository simply run:
 
-``` $ git clone https://github.com/RonnyFalconeri/ticTacToe_Angular.git ```
+```$ git clone https://github.com/RonnyFalconeri/ticTacToe_Angular.git ```
+
+Install all necessary dependecies with:
+
+```$ npm install ```
 
 
 ### Run the development server
