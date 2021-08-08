@@ -51,6 +51,13 @@ describe('ScoringSystem', () => {
     expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
   });
 
+  it('should not detect win if tiles are unset', () => {
+    var gameField: Tile[] = getEmptyGameField();
+    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
+
+    expect(scoringSystem.playerHasWon(unset)).toBeFalsy();
+  });
+
   it('should detect win by diag 1', () => {
     var gameField: Tile[] = getWonGameFieldByDiag1();
     var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
@@ -73,6 +80,16 @@ describe('ScoringSystem', () => {
   });
 
 });
+
+function getEmptyGameField() : Tile[] {
+  var tileArray: Tile[] = new Array(9);
+
+  for(var i=0; i<tileArray.length; i++) {
+    tileArray[i] = new Tile(unset);
+  }
+
+  return tileArray;
+}
 
 function getWonGameFieldByRow1() : Tile[] {
   var tileArray: Tile[] = new Array(9);

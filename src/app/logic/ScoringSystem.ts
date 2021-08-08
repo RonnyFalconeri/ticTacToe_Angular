@@ -10,6 +10,7 @@ export class ScoringSystem implements IScoringSystem {
   }
 
   playerHasWon(currentPlayer : TileState) : boolean {
+    if(currentPlayer == TileState.UNSET) return false;
     if(this.wonByRow(currentPlayer)) return true;
     if(this.wonByColumn(currentPlayer)) return true;
     if(this.wonByDiagonale(currentPlayer)) return true;
@@ -18,7 +19,10 @@ export class ScoringSystem implements IScoringSystem {
   }
 
   private wonByRow(currentPlayer : TileState) : boolean {
-    for(let i=0; i<7; i=i+3) {
+    let rowSize: number = 3;
+    let lastRow: number = 6;
+
+    for(let i=0; i<=lastRow; i=i+rowSize) {
       if(this.gameField[i].getState() == currentPlayer &&
         this.gameField[i+1].getState() == currentPlayer &&
         this.gameField[i+2].getState() == currentPlayer) {
@@ -29,7 +33,9 @@ export class ScoringSystem implements IScoringSystem {
   }
 
   private wonByColumn(currentPlayer : TileState) : boolean {
-    for(let i=0; i<3; i++) {
+    let lastColumn: number = 2;
+
+    for(let i=0; i<=lastColumn; i++) {
       if(this.gameField[i].getState() == currentPlayer &&
       this.gameField[i+3].getState() == currentPlayer &&
       this.gameField[i+6].getState() == currentPlayer) {
@@ -54,7 +60,9 @@ export class ScoringSystem implements IScoringSystem {
   }
 
   isDraw() : boolean {
-    for(let i=0; i<9; i++) {
+    let everyTile: number = 9;
+
+    for(let i=0; i<everyTile; i++) {
       if(this.gameField[i].getState() == TileState.UNSET) {
         return false;
       }
