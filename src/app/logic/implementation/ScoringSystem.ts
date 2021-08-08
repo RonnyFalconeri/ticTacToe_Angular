@@ -1,4 +1,4 @@
-import { IScoringSystem } from './models/IScoringSystem';
+import { IScoringSystem } from 'src/app/logic/models/IScoringSystem';
 import { TileState } from 'src/app/logic/models/TileState';
 import { Tile } from 'src/app/logic/models/Tile';
 

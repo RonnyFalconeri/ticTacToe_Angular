@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TileState } from 'src/app/logic/models/TileState';
 import { GameState } from 'src/app/logic/models/GameState';
 import { Tile } from 'src/app/logic/models/Tile';
-import { ScoringSystem } from 'src/app/logic/ScoringSystem';
+import { ScoringSystem } from 'src/app/logic/implementation/ScoringSystem';
 import { IScoringSystem } from 'src/app/logic/models/IScoringSystem';
 
 @Component({
@@ -32,12 +32,6 @@ export class GameBoardComponent implements OnInit {
     this.scoringSystem = new ScoringSystem(this.gameField);
   }
 
-  private resetGameField() : void {
-    for(var i=0; i<this.gameField.length; i++) {
-      this.gameField[i] = new Tile(TileState.UNSET);
-    }
-  }
-
   makeMove(position: number) : void {
     if(this.gameState == GameState.RUNNING) {
       var currentTile: Tile = this.gameField[position];
@@ -46,6 +40,12 @@ export class GameBoardComponent implements OnInit {
         currentTile.setState(this.currentPlayer);
         this.checkForWin();
       }
+    }
+  }
+
+  private resetGameField() : void {
+    for(var i=0; i<this.gameField.length; i++) {
+      this.gameField[i] = new Tile(TileState.UNSET);
     }
   }
 

@@ -1,11 +1,12 @@
-import { ScoringSystem } from "./ScoringSystem";
+import { ScoringSystem } from "src/app/logic/implementation/ScoringSystem";
 import { Tile } from 'src/app/logic/models/Tile';
 import { TileState } from 'src/app/logic/models/TileState';
-import { IScoringSystem } from "./models/IScoringSystem";
+import { IScoringSystem } from "src/app/logic/models/IScoringSystem";
 
 var winner: TileState = TileState.PLAYER_1;
 var looser: TileState = TileState.PLAYER_2;
 var unset: TileState = TileState.UNSET;
+
 
 describe('ScoringSystem', () => {
 
