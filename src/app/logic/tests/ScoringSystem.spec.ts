@@ -2,82 +2,68 @@ import { ScoringSystem } from "src/app/logic/implementation/ScoringSystem";
 import { Tile } from 'src/app/logic/models/Tile';
 import { TileState } from 'src/app/logic/models/TileState';
 import { IScoringSystem } from "src/app/logic/models/IScoringSystem";
+import { TestBed } from "@angular/core/testing";
 
 var winner: TileState = TileState.PLAYER_1;
 var looser: TileState = TileState.PLAYER_2;
 var unset: TileState = TileState.UNSET;
+var scoringSystem: IScoringSystem;
 
 
 describe('ScoringSystem', () => {
 
+  beforeAll(() => {
+    scoringSystem = TestBed.inject(ScoringSystem);
+  });
+
   it('should detect win by row 1', () => {
     var gameField: Tile[] = getWonGameFieldByRow1();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner, gameField)).toBeTruthy();
   });
 
   it('should detect win by row 2', () => {
     var gameField: Tile[] = getWonGameFieldByRow2();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner, gameField)).toBeTruthy();
   });
 
   it('should detect win by row 3', () => {
     var gameField: Tile[] = getWonGameFieldByRow3();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner, gameField)).toBeTruthy();
   });
 
   it('should detect win by col 1', () => {
     var gameField: Tile[] = getWonGameFieldByCol1();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner, gameField)).toBeTruthy();
   });
 
   it('should detect win by col 2', () => {
     var gameField: Tile[] = getWonGameFieldByCol2();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner, gameField)).toBeTruthy();
   });
 
   it('should detect win by col 3', () => {
     var gameField: Tile[] = getWonGameFieldByCol3();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner, gameField)).toBeTruthy();
   });
 
   it('should not detect win if tiles are unset', () => {
     var gameField: Tile[] = getEmptyGameField();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(unset)).toBeFalsy();
+    expect(scoringSystem.playerHasWon(unset, gameField)).toBeFalsy();
   });
 
   it('should detect win by diag 1', () => {
     var gameField: Tile[] = getWonGameFieldByDiag1();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner, gameField)).toBeTruthy();
   });
 
   it('should detect win by diag 2', () => {
     var gameField: Tile[] = getWonGameFieldByDiag2();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.playerHasWon(winner)).toBeTruthy();
+    expect(scoringSystem.playerHasWon(winner, gameField)).toBeTruthy();
   });
 
   it('should detect draw', () => {
     var gameField: Tile[] = getDrawGameField();
-    var scoringSystem: IScoringSystem = new ScoringSystem(gameField);
-
-    expect(scoringSystem.isDraw()).toBeTruthy();
+    expect(scoringSystem.isDraw(gameField)).toBeTruthy();
   });
 
 });

@@ -1,24 +1,24 @@
 <div class="player-info">
   <div class="wrapper">
     <div>
-      <h1 *ngIf="currentPlayer === tileStateEnum.PLAYER_1">Player 1 is at turn!</h1>
-      <h1 *ngIf="currentPlayer === tileStateEnum.PLAYER_2">Player 2 is at turn!</h1>
+      <h1 *ngIf="gamePlay.getCurrentPlayer() === tileStateEnum.PLAYER_1">Player 1 is at turn!</h1>
+      <h1 *ngIf="gamePlay.getCurrentPlayer() === tileStateEnum.PLAYER_2">Player 2 is at turn!</h1>
     </div>
 
-    <button (click)="newGame()">Restart Game</button>
+    <button (click)="gamePlay.newGame()">Restart Game</button>
   </div>
 </div>
 
-<div class="game-result" *ngIf="gameState !== gameStateEnum.RUNNING">
-  <h1 *ngIf="gameState === gameStateEnum.WON">Player {{currentPlayer}} won the game!</h1>
-  <h1 *ngIf="gameState === gameStateEnum.DRAW">Game resulted in a draw.</h1>
+<div class="game-result" *ngIf="gamePlay.getGameState() !== gameStateEnum.RUNNING">
+  <h1 *ngIf="gamePlay.getGameState() === gameStateEnum.WON">Player {{gamePlay.getCurrentPlayer()}} won the game!</h1>
+  <h1 *ngIf="gamePlay.getGameState() === gameStateEnum.DRAW">Game resulted in a draw.</h1>
 </div>
 
 <div class="game-board">
   <app-tile
-    *ngFor="let tile of gameField; let i=index;"
+    *ngFor="let tile of gamePlay.getGameField(); let i=index;"
     [cornerClass]="'corner-radius-'+i"
     [state]="tile.getState()"
-    (click)="makeMove(i)">
+    (click)="gamePlay.makeMove(i)">
   </app-tile>
 </div>

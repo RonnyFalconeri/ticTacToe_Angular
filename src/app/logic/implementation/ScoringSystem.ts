@@ -1,69 +1,68 @@
 import { IScoringSystem } from 'src/app/logic/models/IScoringSystem';
 import { TileState } from 'src/app/logic/models/TileState';
 import { Tile } from 'src/app/logic/models/Tile';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class ScoringSystem implements IScoringSystem {
-  private gameField: Tile[];
 
-  constructor(gameField: Tile[]) {
-    this.gameField = gameField;
-  }
-
-  playerHasWon(currentPlayer : TileState) : boolean {
+  playerHasWon(currentPlayer: TileState, gameField: Tile[]) : boolean {
     if(currentPlayer == TileState.UNSET) return false;
-    if(this.wonByRow(currentPlayer)) return true;
-    if(this.wonByColumn(currentPlayer)) return true;
-    if(this.wonByDiagonale(currentPlayer)) return true;
+    if(this.playerWonByRow(currentPlayer, gameField)) return true;
+    if(this.playerWonByColumn(currentPlayer, gameField)) return true;
+    if(this.playerWonByDiagonale(currentPlayer, gameField)) return true;
 
     return false;
   }
 
-  private wonByRow(currentPlayer : TileState) : boolean {
+  private playerWonByRow(currentPlayer: TileState, gameField: Tile[]) : boolean {
     let rowSize: number = 3;
     let lastRow: number = 6;
 
     for(let i=0; i<=lastRow; i=i+rowSize) {
-      if(this.gameField[i].getState() == currentPlayer &&
-        this.gameField[i+1].getState() == currentPlayer &&
-        this.gameField[i+2].getState() == currentPlayer) {
+      if(gameField[i].getState() == currentPlayer &&
+        gameField[i+1].getState() == currentPlayer &&
+        gameField[i+2].getState() == currentPlayer) {
         return true;
       }
     }
     return false;
   }
 
-  private wonByColumn(currentPlayer : TileState) : boolean {
+  private playerWonByColumn(currentPlayer: TileState, gameField: Tile[]) : boolean {
     let lastColumn: number = 2;
 
     for(let i=0; i<=lastColumn; i++) {
-      if(this.gameField[i].getState() == currentPlayer &&
-      this.gameField[i+3].getState() == currentPlayer &&
-      this.gameField[i+6].getState() == currentPlayer) {
+      if(gameField[i].getState() == currentPlayer &&
+      gameField[i+3].getState() == currentPlayer &&
+      gameField[i+6].getState() == currentPlayer) {
         return true;
       }
     }
     return false;
   }
 
-  private wonByDiagonale(currentPlayer : TileState) : boolean {
+  private playerWonByDiagonale(currentPlayer: TileState, gameField: Tile[]) : boolean {
     if(
-      (this.gameField[0].getState() == currentPlayer &&
-      this.gameField[4].getState() == currentPlayer &&
-      this.gameField[8].getState() == currentPlayer) ||
-      (this.gameField[2].getState() == currentPlayer &&
-      this.gameField[4].getState() == currentPlayer &&
-      this.gameField[6].getState() == currentPlayer)
+      (gameField[0].getState() == currentPlayer &&
+      gameField[4].getState() == currentPlayer &&
+      gameField[8].getState() == currentPlayer) ||
+      (gameField[2].getState() == currentPlayer &&
+      gameField[4].getState() == currentPlayer &&
+      gameField[6].getState() == currentPlayer)
     ) {
       return true;
     }
     return false;
   }
 
-  isDraw() : boolean {
+  isDraw(gameField: Tile[]) : boolean {
     let everyTile: number = 9;
 
     for(let i=0; i<everyTile; i++) {
-      if(this.gameField[i].getState() == TileState.UNSET) {
+      if(gameField[i].getState() == TileState.UNSET) {
         return false;
       }
     }

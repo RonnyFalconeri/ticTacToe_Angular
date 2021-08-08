@@ -12,7 +12,7 @@ export class TileComponent implements OnInit {
   @Input() state: TileState;
   @Input() cornerClass: string;
 
-  public tileStateEnum = TileState;
+  tileStateEnum = TileState;
 
   constructor() {}
 
