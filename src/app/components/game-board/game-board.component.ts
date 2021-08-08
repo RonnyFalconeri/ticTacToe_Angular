@@ -22,5 +22,4 @@ export class GameBoardComponent implements OnInit {
   ngOnInit() : void {
     this.gamePlay.newGame();
   }
-
 }
