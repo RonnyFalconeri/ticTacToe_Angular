@@ -56,7 +56,7 @@ button:active {
   background-color: #95baff;
 }
 
-@media (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1500px) {
   .game-board {
     grid-template-columns: 150px 150px 150px;
   }
@@ -65,7 +65,7 @@ button:active {
 @media (max-width: 600px) {
   .wrapper {
     flex-direction: column-reverse;
-    margin: 20px auto;
+    margin-top: 70px;
   }
 
   button {
@@ -75,6 +75,7 @@ button:active {
   }
 
   .game-board {
+    margin-top: 70px;
     grid-template-columns: 100px 100px 100px;
   }
 

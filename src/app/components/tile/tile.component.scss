@@ -30,7 +30,7 @@
   border-bottom-right-radius: 40px;
 }
 
-@media (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1500px) {
   .tile {
     height: 150px;
   }
