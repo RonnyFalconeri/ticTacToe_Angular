@@ -1,7 +1,6 @@
 # TicTacToe with Angular
 
 
-
 ## Introduction
 
 ### About the game
@@ -48,6 +47,14 @@ iPhone:
 
 ## Getting started
 
+### Requirements
+
+Before you can run the application you need to have installed:
+- Node.js & npm (v12 or v14)
+- Angular Packages
+
+Install Angular with: ```$ npm install -g @angular/cli ```
+
 ### Development Environment Setup
 
 To clone this repository simply run:
@@ -69,13 +76,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng test` to execute the unit tests. Navigate to `http://localhost:9876/` to see the test results.
 
 
+### Code Analysis
+
+Use _ESLint_ to find problems in your code which you may have not seen before. Run ESLint with `ng lint`.
+
+
 ## Releases
 
 ### v1.0
 - Base application ready and playable
 - Unit tests for scoring system
 - Responsive Design
-
 
 
 ## Further development
