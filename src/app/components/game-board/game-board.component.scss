@@ -56,6 +56,12 @@ button:active {
   background-color: #95baff;
 }
 
+@media (max-width: 1500px) {
+  .game-board {
+    grid-template-columns: 150px 150px 150px;
+  }
+}
+
 @media (max-width: 600px) {
   .wrapper {
     flex-direction: column-reverse;

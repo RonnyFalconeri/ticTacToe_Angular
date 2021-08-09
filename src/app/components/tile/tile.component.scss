@@ -30,6 +30,16 @@
   border-bottom-right-radius: 40px;
 }
 
+@media (max-width: 1500px) {
+  .tile {
+    height: 150px;
+  }
+
+  .symbol {
+    font-size: 9rem;
+  }
+}
+
 @media (max-width: 600px) {
   .tile {
     height: 100px;
